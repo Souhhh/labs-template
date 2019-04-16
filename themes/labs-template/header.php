@@ -7,6 +7,13 @@
   <meta name="description" content="Labs - Design Studio">
   <meta name="keywords" content="lab, onepage, creative, html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <?php
+
+  wp_head();
+
+  ?>
+
   <!-- Favicon -->
   <link href="<?php echo get_template_directory_uri(); ?>/img/favicon.ico" rel="shortcut icon" />
 
@@ -47,13 +54,21 @@
     <!-- Navigation -->
     <div class="responsive"><i class="fa fa-bars"></i></div>
     <nav>
-      <ul class="menu-list">
+      <!-- <ul class="menu-list">
         <li class="active"><a href="home.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="elements.html">Elements</a></li>
-      </ul>
+      </ul> -->
+      <?php
+      wp_nav_menu([
+        'menu_class' => 'menu-list',
+        'theme-location' => 'main-menu',
+        'container' => ''
+      ]);
+      ?>
+
     </nav>
   </header>
   <!-- Header section end -->
