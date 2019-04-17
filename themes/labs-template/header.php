@@ -45,11 +45,13 @@
     </div>
   </div>
 
-
+<?php 
+$logo = get_theme_mod('banner-logo');
+?>
   <!-- Header section -->
   <header class="header-section">
     <div class="logo">
-      <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt=""><!-- Logo -->
+      <img src="<?= $logo; ?>" alt=""><!-- Logo -->
     </div>
     <!-- Navigation -->
     <div class="responsive"><i class="fa fa-bars"></i></div>
