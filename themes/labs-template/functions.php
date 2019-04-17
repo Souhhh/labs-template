@@ -12,7 +12,7 @@ require_once(INCLUDE_DIR . '/customizer-home.php');
 
 require_once(INCLUDE_DIR . '/customizer-services.php');
 
-require_once(INCLUDE_DIR . '/customizer-bloc.php');
+require_once(INCLUDE_DIR . '/customizer-blog.php');
 
 require_once(INCLUDE_DIR . '/customizer-contact.php');
 
