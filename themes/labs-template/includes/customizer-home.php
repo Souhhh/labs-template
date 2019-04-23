@@ -44,6 +44,20 @@ $wp_customize->add_section( 'testimonial-text' , [
         'title'      => __('Section Team : Personnalisation'),
         'description'   => __('Personnalisation du texte')
     ]);
+// Section promotion
+$wp_customize->add_section( 'promotion-text' , [
+    'panel' => 'home-panel',
+    'title'      => __('Section Promotion : Personnalisation'),
+    'description'   => __('Personnalisation du texte')
+]);
+
+// Section contact
+$wp_customize->add_section( 'contact-text' , [
+    'panel' => 'home-panel',
+    'title'      => __('Section Contact : Personnalisation'),
+    'description'   => __('Personnalisation du texte')
+]);
+
 
 // Setting banner
 $wp_customize->add_setting('banner-logo', [
@@ -138,8 +152,36 @@ $wp_customize->add_setting('team-text-title', [
     'type' => 'theme_mod',
     'sanitize_callback' => 'sanitize_textarea_field'
 ]);
-// Control banner
 
+// settings promotion
+$wp_customize->add_setting('promotion-text-title', [
+    'type' => 'theme_mod',
+    'sanitize_callback' => 'sanitize_textarea_field'
+]);
+$wp_customize->add_setting('promotion-text-subtitle', [
+    'type' => 'theme_mod',
+    'sanitize_callback' => 'sanitize_textarea_field'
+]);
+
+// settings contact
+$wp_customize->add_setting('contact-text-title', [
+    'type' => 'theme_mod',
+    'sanitize_callback' => 'sanitize_textarea_field'
+]);
+$wp_customize->add_setting('contact-text-subtitle', [
+    'type' => 'theme_mod',
+    'sanitize_callback' => 'sanitize_textarea_field'
+]);
+$wp_customize->add_setting('contact-text-titre-vert', [
+    'type' => 'theme_mod',
+    'sanitize_callback' => 'sanitize_textarea_field'
+]);
+$wp_customize->add_setting('contact-text-info', [
+    'type' => 'theme_mod',
+    'sanitize_callback' => 'sanitize_textarea_field'
+]);
+
+// Control banner
 $wp_customize->add_control(
     new WP_Customize_Image_Control(
         $wp_customize,
@@ -343,7 +385,57 @@ $wp_customize->add_control('team-text-title-control',
     'type' => 'textarea'
 ]);
 
+// Control team
+$wp_customize->add_control('promotion-text-title-control',
+[
+    'section' => 'promotion-text',
+    'settings' => 'promotion-text-title',
+    'label' => __('Titre de promotion'),
+    'description' => __('Personnalisez le titre'),
+    'type' => 'textarea'
+]);
+$wp_customize->add_control('promotion-text-subtitle-control',
+[
+    'section' => 'promotion-text',
+    'settings' => 'promotion-text-subtitle',
+    'label' => __('Sous-titre de promotion'),
+    'description' => __('Personnalisez le titre'),
+    'type' => 'textarea'
+]);
 
+// Control contact
+$wp_customize->add_control('contact-text-title-control',
+[
+    'section' => 'contact-text',
+    'settings' => 'contact-text-title',
+    'label' => __('Titre de contact'),
+    'description' => __('Personnalisez le titre'),
+    'type' => 'textarea'
+]);
+$wp_customize->add_control('contact-text-subtitle-control',
+[
+    'section' => 'contact-text',
+    'settings' => 'contact-text-subtitle',
+    'label' => __('Sous-titre de contact'),
+    'description' => __('Personnalisez le titre'),
+    'type' => 'textarea'
+]);
+$wp_customize->add_control('contact-text-titre-vert-control',
+[
+    'section' => 'contact-text',
+    'settings' => 'contact-text-titre-vert',
+    'label' => __('Titre en vert'),
+    'description' => __('Personnalisez le titre'),
+    'type' => 'textarea'
+]);
+$wp_customize->add_control('contact-text-info-control',
+[
+    'section' => 'contact-text',
+    'settings' => 'contact-text-info',
+    'label' => __('Les informations'),
+    'description' => __('Personnalisez le titre'),
+    'type' => 'textarea'
+]);
     }
 
 }

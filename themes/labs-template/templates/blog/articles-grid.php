@@ -7,8 +7,12 @@
                         'post_type' => 'post',
                         // 'category_name' => 'design'
 					];
+					
+
 					$query = new WP_Query($args);
-					while ($query->have_posts()) : $query->the_post(); ?>
+					while ($query->have_posts()) : $query->the_post(); 
+					
+					$post_id = get_the_ID($query);?>
 
 					<div class="post-item">
 						
@@ -35,7 +39,7 @@
 								<?php the_content(); ?>
 								<?php endwhile; ?>
 							</p>
-							<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
+							<a href="<?php the_permalink($post_id); ?>" class="read-more">Read More</a>
 						</div>
 					</div>						
 							
