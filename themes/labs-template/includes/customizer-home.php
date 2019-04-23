@@ -11,6 +11,7 @@ public static function ajout_personnalisation_home($wp_customize)
         'title' => __('Page Home'),
         'description' => __('Personnalisation de la page Home')
     ]);
+
 // Section banner
     $wp_customize->add_section( 'banner-images' , [
         'panel' => 'home-panel',
@@ -25,10 +26,22 @@ public static function ajout_personnalisation_home($wp_customize)
         'description'   => __('Personnalisation du texte')
     ]);
 
+// Section testimonial
+$wp_customize->add_section( 'testimonial-text' , [
+    'panel' => 'home-panel',
+    'title'      => __('Section Avis : Personnalisation'),
+    'description'   => __('Personnalisation du texte')
+]);
 // Section services
     $wp_customize->add_section( 'services-text' , [
         'panel' => 'home-panel',
         'title'      => __('Section Services : Personnalisation'),
+        'description'   => __('Personnalisation du texte')
+    ]);
+// Section team
+    $wp_customize->add_section( 'team-text' , [
+        'panel' => 'home-panel',
+        'title'      => __('Section Team : Personnalisation'),
         'description'   => __('Personnalisation du texte')
     ]);
 
@@ -50,30 +63,81 @@ $wp_customize->add_setting('banner-image2-background', [
 ]);
 
 // Setting about
-    $wp_customize->add_setting('services-text-top-right', [
+    $wp_customize->add_setting('about-text-top-right', [
         'type' => 'theme_mod',
         'sanitize_callback' => 'sanitize_textarea_field'
     ]);
-    $wp_customize->add_setting('services-text-top-middle', [
-        'type' => 'theme_mod',
-        'sanitize_callback' => 'sanitize_textarea_field'
-    ]);
-
-    $wp_customize->add_setting('services-text-top-left', [
+    $wp_customize->add_setting('about-text-top-middle', [
         'type' => 'theme_mod',
         'sanitize_callback' => 'sanitize_textarea_field'
     ]);
 
-    $wp_customize->add_setting('services-text-left', [
+    $wp_customize->add_setting('about-text-top-left', [
         'type' => 'theme_mod',
         'sanitize_callback' => 'sanitize_textarea_field'
     ]);
 
-    $wp_customize->add_setting('services-text-right', [
+    $wp_customize->add_setting('about-text-left', [
         'type' => 'theme_mod',
         'sanitize_callback' => 'sanitize_textarea_field'
     ]);
 
+    $wp_customize->add_setting('about-text-right', [
+        'type' => 'theme_mod',
+        'sanitize_callback' => 'sanitize_textarea_field'
+    ]);
+
+    $wp_customize->add_setting('image-video', [
+        'type' => 'theme_mod', 
+    ]);
+
+    $wp_customize->add_setting('about-url', [
+        'type' => 'theme_mod',
+    ]);
+
+// settings services
+
+$wp_customize->add_setting('services-text-top-right', [
+    'type' => 'theme_mod',
+    'sanitize_callback' => 'sanitize_textarea_field'
+]);
+$wp_customize->add_setting('services-text-top-middle', [
+    'type' => 'theme_mod',
+    'sanitize_callback' => 'sanitize_textarea_field'
+]);
+
+$wp_customize->add_setting('services-text-top-left', [
+    'type' => 'theme_mod',
+    'sanitize_callback' => 'sanitize_textarea_field'
+]);
+
+// settings team
+
+$wp_customize->add_setting('team-text-top-right', [
+    'type' => 'theme_mod',
+    'sanitize_callback' => 'sanitize_textarea_field'
+]);
+$wp_customize->add_setting('team-text-top-middle', [
+    'type' => 'theme_mod',
+    'sanitize_callback' => 'sanitize_textarea_field'
+]);
+
+$wp_customize->add_setting('team-text-top-left', [
+    'type' => 'theme_mod',
+    'sanitize_callback' => 'sanitize_textarea_field'
+]);
+$wp_customize->add_setting('team-image-center', [
+    'type' => 'theme_mod', 
+]);
+$wp_customize->add_setting('team-text-name', [
+    'type' => 'theme_mod',
+    'sanitize_callback' => 'sanitize_textarea_field'
+]);
+
+$wp_customize->add_setting('team-text-title', [
+    'type' => 'theme_mod',
+    'sanitize_callback' => 'sanitize_textarea_field'
+]);
 // Control banner
 
 $wp_customize->add_control(
@@ -129,48 +193,156 @@ $wp_customize->add_control(
 );
 
 // Control about
-    $wp_customize->add_control('services-text-top-left-control',
+    $wp_customize->add_control('about-text-top-left-control',
     [
-        'section' => 'services-text',
-        'settings' => 'services-text-top-left',
+        'section' => 'about-text',
+        'settings' => 'about-text-top-left',
         'label' => __('Titre de la section à gauche'),
         'description' => __('Personnalisez le titre'),
         'type' => 'textarea'
     ]);
-    $wp_customize->add_control('services-text-top-middle-control',
+    $wp_customize->add_control('about-text-top-middle-control',
     [
-        'section' => 'services-text',
-        'settings' => 'services-text-top-middle',
+        'section' => 'about-text',
+        'settings' => 'about-text-top-middle',
         'label' => __('Titre de la section en vert'),
         'description' => __('Personnalisez le titre'),
         'type' => 'textarea'
     ]);
-    $wp_customize->add_control('services-text-top- right-control',
+    $wp_customize->add_control('about-text-top- right-control',
     [
-        'section' => 'services-text',
-        'settings' => 'services-text-top-right',
+        'section' => 'about-text',
+        'settings' => 'about-text-top-right',
         'label' => __('Titre de la section à droite'),
         'description' => __('Personnalisez le titre'),
         'type' => 'textarea'
     ]);
 
-    $wp_customize->add_control('services-text-left-control',
+    $wp_customize->add_control('about-text-left-control',
     [
-        'section' => 'services-text',
-        'settings' => 'services-text-left',
+        'section' => 'about-text',
+        'settings' => 'about-text-left',
         'label' => __('Texte colonne gauche'),
         'description' => __('Personnalisez le texte de la colonne gauche'),
         'type' => 'textarea'
     ]);
 
-    $wp_customize->add_control('services-text-right-control',
+    $wp_customize->add_control('about-text-right-control',
     [
-        'section' => 'services-text',
-        'settings' => 'services-text-right',
+        'section' => 'about-text',
+        'settings' => 'about-text-right',
         'label' => __('Texte colonne droite'),
         'description' => __('Personnalisez le texte de la colonne droite'),
         'type' => 'textarea'
     ]);
+
+    $wp_customize->add_control(
+        new WP_Customize_Image_Control(
+            $wp_customize,
+            'video',
+            array(
+                'label'      => __( 'Upload a image for your video', 'theme_name' ),
+                'section'    => 'about-text',
+                'settings'   => 'image-video',
+            )
+        )
+    );
+    
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'about-url',
+            array(
+                'label'          => __( 'Url de la video', 'theme_name' ),
+                'section'        => 'about-text',
+                'settings'       => 'about-url',
+                'type'           => 'url',
+                'choices'        => array(
+                )
+            )
+        )
+    );
+// Control services
+$wp_customize->add_control('services-text-top-left-control',
+[
+    'section' => 'services-text',
+    'settings' => 'services-text-top-left',
+    'label' => __('Titre de la section à gauche'),
+    'description' => __('Personnalisez le titre'),
+    'type' => 'textarea'
+]);
+$wp_customize->add_control('services-text-top-middle-control',
+[
+    'section' => 'services-text',
+    'settings' => 'services-text-top-middle',
+    'label' => __('Titre de la section en vert'),
+    'description' => __('Personnalisez le titre'),
+    'type' => 'textarea'
+]);
+$wp_customize->add_control('services-text-top- right-control',
+[
+    'section' => 'services-text',
+    'settings' => 'services-text-top-right',
+    'label' => __('Titre de la section à droite'),
+    'description' => __('Personnalisez le titre'),
+    'type' => 'textarea'
+]);
+
+
+// Control team
+$wp_customize->add_control('team-text-top-left-control',
+[
+    'section' => 'team-text',
+    'settings' => 'team-text-top-left',
+    'label' => __('Titre de la section à gauche'),
+    'description' => __('Personnalisez le titre'),
+    'type' => 'textarea'
+]);
+$wp_customize->add_control('team-text-top-middle-control',
+[
+    'section' => 'team-text',
+    'settings' => 'team-text-top-middle',
+    'label' => __('Titre de la section en vert'),
+    'description' => __('Personnalisez le titre'),
+    'type' => 'textarea'
+]);
+$wp_customize->add_control('team-text-top-right-control',
+[
+    'section' => 'team-text',
+    'settings' => 'team-text-top-right',
+    'label' => __('Titre de la section à droite'),
+    'description' => __('Personnalisez le titre'),
+    'type' => 'textarea'
+]);
+
+$wp_customize->add_control(
+    new WP_Customize_Image_Control(
+        $wp_customize,
+        'team-image',
+        array(
+            'label'      => __( 'Upload your profil picture', 'theme_name' ),
+            'section'    => 'team-text',
+            'settings'   => 'team-image-center',
+        )
+    )
+);
+$wp_customize->add_control('team-text-name-control',
+[
+    'section' => 'team-text',
+    'settings' => 'team-text-name',
+    'label' => __('Name & Lastname'),
+    'description' => __('Personnalisez le titre'),
+    'type' => 'textarea'
+]);
+$wp_customize->add_control('team-text-title-control',
+[
+    'section' => 'team-text',
+    'settings' => 'team-text-title',
+    'label' => __('Titre de Profession'),
+    'description' => __('Personnalisez le titre'),
+    'type' => 'textarea'
+]);
+
 
     }
 
