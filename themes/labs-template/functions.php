@@ -16,4 +16,6 @@ require_once(INCLUDE_DIR . '/customizer-blog.php');
 
 require_once(INCLUDE_DIR . '/customizer-contact.php');
 
+require_once(INCLUDE_DIR . '/sidebars.php');
+
 

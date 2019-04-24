@@ -16,7 +16,7 @@ $contact_info = get_theme_mod('contact-text-info',__('Les informations'));
           </div>
           <p> <?= $contact_subtitle ?> </p>
           <h3 class="mt60"><?= $contact_vert ?></h3>
-          <p class="con-item"> <?php echo aLaLigne('contact-text-info'); ?></p>
+          <p class="con-item"> <?php  echo aLaLigne('contact-text-info'); ?></p>
         </div>
         <!-- contact form -->
         <div class="col-md-6 col-pull">
