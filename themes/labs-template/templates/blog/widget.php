@@ -17,6 +17,7 @@
 					<!-- Single widget -->
 					<div class="widget-item">
 					<?php dynamic_sidebar('sidebar-4'); ?>
+					
 						<h2 class="widget-title">Tags</h2>
 						<ul class="tag">
 							<?php

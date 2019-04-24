@@ -1,9 +1,14 @@
+<?php
+$projets_titre_left = get_theme_mod('projets-text-top-left', __('Titre de la section à gauche'));
+$projets_titre_middle = get_theme_mod('projets-text-top-middle', __('Titre de la section en vert'));
+$projets_titre_right = get_theme_mod('projets-text-top-right', __('Titre de la section à droite'));
+?>
  <!-- features section -->
  <div class="team-section spad">
     <div class="overlay"></div>
     <div class="container">
       <div class="section-title">
-        <h2>Get in <span>the Lab</span> and discover the world</h2>
+        <h2><?= $projets_titre_left; ?> <span><?= $projets_titre_middle; ?></span> <?= $projets_titre_right; ?></h2>
       </div>
       <div class="row">
         <!-- feature item -->

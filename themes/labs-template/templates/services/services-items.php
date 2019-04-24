@@ -1,8 +1,13 @@
+<?php
+$services_titre_left = get_theme_mod('services-text-top-left', __('Titre de la section à gauche'));
+$services_titre_middle = get_theme_mod('services-text-top-middle', __('Titre de la section en vert'));
+$services_titre_right = get_theme_mod('services-text-top-right', __('Titre de la section à droite'));
+?>
 <!-- services section -->
 <div class="services-section spad">
     <div class="container">
       <div class="section-title dark">
-        <h2>Get in <span>the Lab</span> and see the services</h2>
+        <h2><?= $services_titre_left; ?> <span><?= $services_titre_middle; ?></span> <?= $services_titre_right; ?></h2>
       </div>
       <div class="row">
         <!-- single service -->

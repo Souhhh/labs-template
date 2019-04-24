@@ -1312,8 +1312,19 @@ ul {
 /* Contact page Map */
 .map {
 	height: 750px;
+	width: 100% !important;
 }
 
+.gmap_canvas {
+	width: 100% !important;
+	height: 100% !important;
+	
+}
+
+#gmap_canvas {
+	width: 100% !important;
+	height: 100% !important;
+}
 
 /*------------------------
 	Elements

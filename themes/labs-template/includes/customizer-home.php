@@ -433,7 +433,7 @@ $wp_customize->add_control('contact-text-info-control',
     'section' => 'contact-text',
     'settings' => 'contact-text-info',
     'label' => __('Les informations'),
-    'description' => __('Personnalisez le titre'),
+    'description' => __('Personnalisez le titre avec |br| pour passer à la ligne'),
     'type' => 'textarea'
 ]);
     }
