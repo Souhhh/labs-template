@@ -2,9 +2,9 @@
 
 namespace App\Features\Taxonomies;
 
-use App\Features\PostTypes\RecipePostTypeTestimonials;
+use App\Features\PostTypes\TestimonialsPostType;
 
-class RecipeTaxonomy 
+class TestimonialsTaxonomy 
 
 {
     public static $slug = 'testimonials_taxonomy';
@@ -39,6 +39,6 @@ class RecipeTaxonomy
          ];
 
          // ajout de la taxonomie pour le type de contenu services
-         register_taxonomy(self::$slug, [RecipePostTypeTestimonials::$slug], $args);
+         register_taxonomy(self::$slug, [TestimonialsPostType::$slug], $args);
      }
 }

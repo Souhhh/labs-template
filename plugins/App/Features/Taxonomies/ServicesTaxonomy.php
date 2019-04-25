@@ -2,9 +2,9 @@
 
 namespace App\Features\Taxonomies;
 
-use App\Features\PostTypes\RecipePostTypeServices;
+use App\Features\PostTypes\ServicesPostType;
 
-class RecipeTaxonomy
+class ServicesTaxonomy
 
 {
     public static $slug = 'services_taxonomy';
@@ -39,6 +39,6 @@ class RecipeTaxonomy
          ];
 
          // ajout de la taxonomie pour le type de contenu services
-         register_taxonomy(self::$slug, [RecipePostTypeServices::$slug], $args);
+         register_taxonomy(self::$slug, [ServicesPostType::$slug], $args);
      }
 }

@@ -2,16 +2,16 @@
 
 namespace App\Features\PostTypes;
 
-class RecipePostTypeTestimonials
-
+class TeamPostType
 {
-    public static $slug = 'testimonials';
+
+    public static $slug = 'team';
     public static function register()
     {
         $labels = array(// la key labels contient un tableau avec des labels pour les différents endroits où il y a le type de contenu services)
-               'name' => __('Avis'),
-               'singular_name' => __('Avis'),
-               'add_new' => __('Ajouter un nouvel avis'),
+               'name' => __('Membre'),
+               'singular_name' => __('Membre'),
+               'add_new' => __('Ajouter un nouveau membre'),
                 // 'add_new_item' => array(__('Add New Post'), __('Add New Page')),
                 // 'edit_item' => array(__('Edit Post'), __('Edit Page')),
                 // 'new_item' => array(__('New Post'), __('New Page')),
@@ -38,9 +38,9 @@ class RecipePostTypeTestimonials
                 // 'item_reverted_to_draft' => array(__('Post reverted to draft.'), __('Page reverted to draft.')),
                 // 'item_scheduled' => array(__('Post scheduled.'), __('Page scheduled.')),
                 // 'item_updated' => array(__('Post updated.'), __('Page updated.')),
-        );
-
-            $options = array(
+        ); 
+        
+        $options = array(
                 'labels' => $labels,
                 'description' => '',
                 'public' => true, // affichage public dans le menu 
@@ -54,9 +54,9 @@ class RecipePostTypeTestimonials
                 'menu_position' => null,
                 'menu_icon' => null,
                 'capability_type' => 'post',
-                'capabilities' => array(),
+                'capabilities' => array('title', 'editor', 'excerpt', 'thumbnail'),
                 'map_meta_cap' => null,
-                'supports' => array('title', 'editor', 'excerpt', 'thumbnail'),
+                'supports' => array(),
                 'register_meta_box_cb' => null,
                 'taxonomies' => array('post_tag'),
                 'has_archive' => false,
@@ -71,11 +71,10 @@ class RecipePostTypeTestimonials
                 '_edit_link' => 'post.php?post=%d',
    
             );
-            
+
         register_post_type(
-            self::$slug , // le slug du type de contenu
-            $options 
-            
-               );
+            self::$slug, // le slug du type de contenu
+            $options
+            );
     }
 }

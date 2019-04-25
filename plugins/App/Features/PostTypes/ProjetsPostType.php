@@ -2,7 +2,7 @@
 
 namespace App\Features\PostTypes;
 
-class RecipePostTypeProjets 
+class ProjetsPostType 
 
 {
     public static $slug = 'projets';

@@ -2,7 +2,7 @@
 
 namespace App\Features\PostTypes;
 
-class RecipePostTypeServices
+class ServicesPostType
 
 {
     public static $slug = 'services';
@@ -42,7 +42,7 @@ class RecipePostTypeServices
     );
 
     $options = array( // un tableau contenant les configurations pour créer le type de contenu services
-             'labels' = $labels,
+             'labels' => $labels,
              'description' => '',
              'public' => true, // affichage public dans le menu 
              'hierarchical' => false,

@@ -2,9 +2,9 @@
 
 namespace App\Features\Taxonomies;
 
-use App\Features\PostTypes\RecipePostTypeTeam;
+use App\Features\PostTypes\TeamPostType;
 
-class RecipeTaxonomy
+class TeamTaxonomy
 
 {
     public static $slug = 'team_taxonomy';
@@ -39,6 +39,6 @@ class RecipeTaxonomy
          ];
 
          // ajout de la taxonomie pour le type de contenu services
-         register_taxonomy(self::$slug, [RecipePostTypeTeam::$slug], $args);
+         register_taxonomy(self::$slug, [TeamPostType::$slug], $args);
      }
 }
