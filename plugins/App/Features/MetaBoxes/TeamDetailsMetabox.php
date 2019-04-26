@@ -31,6 +31,6 @@ class TeamDetailsMetabox
 
       public static function render()
       {
-          echo "<h3>hello</h3>";
+        view('metaboxes/team-detail');
       }
 }

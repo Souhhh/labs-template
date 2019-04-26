@@ -7,7 +7,16 @@ $services_titre_right = get_theme_mod('services-text-top-right', __('Titre de la
 
  ?> 
   <!-- Services section -->
+  <?php
+    $args = [
+      'post_type' => 'services',
+      'posts_per_page' => 9,
+    ];
+    $ninequery = new WP_Query($args);
+    ?>
+
   <div class="services-section spad">
+
     <div class="container">
       <div class="section-title dark">
         <h2><?= $services_titre_left; ?><span><?= $services_titre_middle; ?></span><?= $services_titre_right; ?></h2>

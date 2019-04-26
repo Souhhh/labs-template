@@ -52,7 +52,7 @@ class ProjetsPostType
                 'show_in_nav_menus' => null,
                 'show_in_admin_bar' => null,
                 'menu_position' => null,
-                'menu_icon' => null,
+                'menu_icon' => 'dashicons-portfolio',
                 'capability_type' => 'post',
                 'capabilities' => array(),
                 'map_meta_cap' => null,

@@ -31,6 +31,21 @@ class TestimonialsDetailsMetabox
 
       public static function render()
       {
-          echo "<h3>hello</h3>";
+        view('metaboxes/testimonials-detail');
       }
+
+      /**
+       * sauvegarde des données de la métabox
+       */
+
+       public static function save($post_id)
+       {
+           // On vérifie que $_POST ne soit pas vite pour effectuer l'action uniquement à la sauvegarde du post Type
+
+        //    if (count($_POST) != 0) {
+        //        $icon_choix = $_POST['labs_icon_services'];
+
+        //        update_post_meta($post_id, 'labs_icon_services', $icon_choix);
+        //    }
+       }
 }

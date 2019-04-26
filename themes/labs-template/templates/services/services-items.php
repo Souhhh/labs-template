@@ -9,7 +9,18 @@ $services_titre_right = get_theme_mod('services-text-top-right', __('Titre de la
       <div class="section-title dark">
         <h2><?= $services_titre_left; ?> <span><?= $services_titre_middle; ?></span> <?= $services_titre_right; ?></h2>
       </div>
+
+      <?php
+    $args = [
+      'post_type' => 'services',
+      'posts_per_page' => 9,
+      'order' => 'asc',
+      // asc dans l'ordre croissant et desc dans l'ordre décroissant
+    ];
+    $servicesquery = new WP_Query($args);
+    ?>
       <div class="row">
+        <?php while ($servicesquery->have_posts()): $servicesquery->the_post(); ?>
         <!-- single service -->
         <div class="col-md-4 col-sm-6">
           <div class="service">
@@ -17,107 +28,15 @@ $services_titre_right = get_theme_mod('services-text-top-right', __('Titre de la
               <i class="flaticon-023-flask"></i>
             </div>
             <div class="service-text">
-              <h2>Get in the lab</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+              <h2><?php the_title(); ?></h2>
+              <p><?php the_content(); ?></p>
             </div>
           </div>
         </div>
-        <!-- single service -->
-        <div class="col-md-4 col-sm-6">
-          <div class="service">
-            <div class="icon">
-              <i class="flaticon-011-compass"></i>
-            </div>
-            <div class="service-text">
-              <h2>Projects online</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-            </div>
-          </div>
-        </div>
-        <!-- single service -->
-        <div class="col-md-4 col-sm-6">
-          <div class="service">
-            <div class="icon">
-              <i class="flaticon-037-idea"></i>
-            </div>
-            <div class="service-text">
-              <h2>SMART MARKETING</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-            </div>
-          </div>
-        </div>
-        <!-- single service -->
-        <div class="col-md-4 col-sm-6">
-          <div class="service">
-            <div class="icon">
-              <i class="flaticon-039-vector"></i>
-            </div>
-            <div class="service-text">
-              <h2>Social Media</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-            </div>
-          </div>
-        </div>
-        <!-- single service -->
-        <div class="col-md-4 col-sm-6">
-          <div class="service">
-            <div class="icon">
-              <i class="flaticon-036-brainstorming"></i>
-            </div>
-            <div class="service-text">
-              <h2>Brainstorming</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-            </div>
-          </div>
-        </div>
-        <!-- single service -->
-        <div class="col-md-4 col-sm-6">
-          <div class="service">
-            <div class="icon">
-              <i class="flaticon-026-search"></i>
-            </div>
-            <div class="service-text">
-              <h2>Documented</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-            </div>
-          </div>
-        </div>
-        <!-- single service -->
-        <div class="col-md-4 col-sm-6">
-          <div class="service">
-            <div class="icon">
-              <i class="flaticon-018-laptop-1"></i>
-            </div>
-            <div class="service-text">
-              <h2>Responsive</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-            </div>
-          </div>
-        </div>
-        <!-- single service -->
-        <div class="col-md-4 col-sm-6">
-          <div class="service">
-            <div class="icon">
-              <i class="flaticon-043-sketch"></i>
-            </div>
-            <div class="service-text">
-              <h2>Retina ready</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-            </div>
-          </div>
-        </div>
-        <!-- single service -->
-        <div class="col-md-4 col-sm-6">
-          <div class="service">
-            <div class="icon">
-              <i class="flaticon-012-cube"></i>
-            </div>
-            <div class="service-text">
-              <h2>Ultra modern</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-            </div>
-          </div>
-        </div>
+        <?php 
+        endwhile;
+        wp_reset_postdata();
+        ?>
       </div>
       <div class="text-center">
         <a href="<?php echo get_page_link('6'); ?>" class="site-btn">Browse</a>

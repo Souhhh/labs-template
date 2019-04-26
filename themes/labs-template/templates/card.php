@@ -3,8 +3,9 @@
     <div class="overlay"></div>
     <?php
     $args = [
-      'post_type' => 'post',
+      'post_type' => 'services',
       'posts_per_page'=> 3,
+      'orderby' => 'rand',
       // 'category_name' => 'services-card'
 
     ];
@@ -21,9 +22,9 @@
               <div class="icon">
                 <i class="flaticon-023-flask"></i>
               </div>
-              <h2><?php the_title(); ?>Get in the lab</h2>
+              <h2><?php the_title(); ?></h2>
               <p><?php the_content(); ?>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+              </p>
             </div>
           </div>
           <?php 

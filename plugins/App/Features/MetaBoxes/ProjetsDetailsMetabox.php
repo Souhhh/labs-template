@@ -31,6 +31,6 @@ class ProjetsDetailsMetabox
 
       public static function render()
       {
-          include(RAT_VIEW_DIR . 'metaboxes/recipe-detail.html.php');
+          view('metaboxes/projets-detail');
       }
 }
