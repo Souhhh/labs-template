@@ -15,12 +15,14 @@
     <div class="card-section">
       <div class="container">
         <div class="row">
-          <?php while ($query->have_posts()): $query->the_post(); ?>
+          <?php while ($query->have_posts()): $query->the_post();
+          $icon = get_post_meta(get_the_ID() , 'labs_icon_services' , true);
+           ?>
           <!-- single card -->
           <div class="col-md-4 col-sm-6">
             <div class="lab-card">
               <div class="icon">
-                <i class="flaticon-023-flask"></i>
+                <i class="<?= $icon ?>"></i>
               </div>
               <h2><?php the_title(); ?></h2>
               <p><?php the_content(); ?>

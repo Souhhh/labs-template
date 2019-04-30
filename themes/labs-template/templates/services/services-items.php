@@ -20,12 +20,14 @@ $services_titre_right = get_theme_mod('services-text-top-right', __('Titre de la
     $servicesquery = new WP_Query($args);
     ?>
       <div class="row">
-        <?php while ($servicesquery->have_posts()): $servicesquery->the_post(); ?>
+        <?php while ($servicesquery->have_posts()): $servicesquery->the_post(); 
+        $icon = get_post_meta(get_the_ID() , 'labs_icon_services' , true);
+        ?>
         <!-- single service -->
         <div class="col-md-4 col-sm-6">
           <div class="service">
             <div class="icon">
-              <i class="flaticon-023-flask"></i>
+              <i class="<?= $icon ?>"></i>
             </div>
             <div class="service-text">
               <h2><?php the_title(); ?></h2>

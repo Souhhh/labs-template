@@ -10,7 +10,7 @@
  function view($path, $data = array())
  {
      extract($data);
-     include(RAT_VIEW_DIR . $path . '.html.php');
+     include(SER_VIEW_DIR . $path . '.html.php');
  }
 
  /**

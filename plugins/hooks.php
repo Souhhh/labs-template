@@ -14,6 +14,7 @@ use App\Features\MetaBoxes\TeamDetailsMetabox;
 use App\Features\MetaBoxes\TestimonialsDetailsMetabox;
 use App\Features\MetaBoxes\ServicesDetailsMetabox;
 use App\Features\MetaBoxes\ProjetsDetailsMetabox;
+use App\Setup;
 
 add_action('init', [ServicesPostType::class,'register']);
 
@@ -43,3 +44,5 @@ add_action('add_meta_boxes_projets', [ProjetsDetailsMetabox::class, 'add_meta_bo
 add_action('save_post_' . ServicesPostType::$slug, [ServicesDetailsMetabox::class, 'save']);
 
 add_action('delete_post', 'delete_post_metas');
+
+add_action('admin_enqueue_scripts', [Setup::class, 'enqueue_scripts']);

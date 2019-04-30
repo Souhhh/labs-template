@@ -33,11 +33,14 @@ class ServicesDetailsMetabox
       {
           // récupération de toutes les meta du post
 
-          $data = get_post_meta(get_the_ID());
+          //$data = get_post_meta(get_the_ID());
 
           // récupération et attribution des valeurs à utiliser pour la view
-          $service = extract_data_attr('labs_icon_services', $data);
-        view('metaboxes/services-detail', compact('service'));
+          //$service = extract_data_attr('labs_icon_services', $data);
+
+          $service = get_post_meta(get_the_ID() , 'labs_icon_services' , true);
+
+            view('metaboxes/services-detail', compact('service'));
       }
 
       public static function save($post_id)
