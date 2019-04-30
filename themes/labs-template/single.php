@@ -49,9 +49,18 @@ get_template_part('templates/blog/banner');
 <?php endwhile; ?>
                         
 						<!-- Post Author -->
+						
+						<!-- <style>
+							.avatar > img {
+								border-radius: 50px;
+							}
+						</style> -->
+
 						<div class="author">
 						<div class="avatar">
-								<img src=" <?php echo get_avatar( get_the_author_meta('ID'), 96); ?> " alt=""  >
+
+						<?php echo get_avatar( get_the_author_meta('ID'), 115); ?>
+
 							</div>
 							<div class="author-info">
 								<h2>
