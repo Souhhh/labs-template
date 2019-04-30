@@ -51,7 +51,7 @@ get_template_part('templates/blog/banner');
 						<!-- Post Author -->
 						<div class="author">
 						<div class="avatar">
-								<img src=" <?php echo get_avatar( get_the_author_meta( 'ID' )); ?>" alt="">
+								<img src=" <?php echo get_avatar( get_the_author_meta('ID'), 96); ?> " alt=""  >
 							</div>
 							<div class="author-info">
 								<h2>

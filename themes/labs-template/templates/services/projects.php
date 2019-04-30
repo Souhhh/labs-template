@@ -6,82 +6,101 @@ $projets_titre_right = get_theme_mod('projets-text-top-right', __('Titre de la s
  <!-- features section -->
  <div class="team-section spad">
     <div class="overlay"></div>
+
+    <?php
+    $args = [
+      'post_type' => 'projets',
+      'posts_per_page'=> 3,
+      'order' => 'ASC',
+      // 'category_name' => 'services-card'
+
+    ];
+    $firstquery = new WP_Query($args);
+    ?>
+
     <div class="container">
       <div class="section-title">
         <h2><?= $projets_titre_left; ?> <span><?= $projets_titre_middle; ?></span> <?= $projets_titre_right; ?></h2>
       </div>
+      
+      
+
       <div class="row">
+
+        
+
         <!-- feature item -->
         <div class="col-md-4 col-sm-4 features">
+
+<?php while ($firstquery->have_posts()): $firstquery->the_post();
+          $icon = get_post_meta(get_the_ID() , 'labs_icon_projets' , true);
+        ?>
+
           <div class="icon-box light left">
             <div class="service-text">
-              <h2>Get in the lab</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
+              <h2><?php the_title(); ?></h2>
+              <p><?php the_content(); ?></p>
             </div>
             <div class="icon">
-              <i class="flaticon-002-caliper"></i>
+              <i class="<?= $icon ?>"></i>
             </div>
           </div>
-          <!-- feature item -->
-          <div class="icon-box light left">
-            <div class="service-text">
-              <h2>Projects online</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
-            </div>
-            <div class="icon">
-              <i class="flaticon-019-coffee-cup"></i>
-            </div>
-          </div>
-          <!-- feature item -->
-          <div class="icon-box light left">
-            <div class="service-text">
-              <h2>SMART MARKETING</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
-            </div>
-            <div class="icon">
-              <i class="flaticon-020-creativity"></i>
-            </div>
-          </div>
+          
+<?php 
+  endwhile;
+          wp_reset_postdata(); 
+          ?>
         </div>
+
+       
+          
+          
         <!-- Devices -->
         <div class="col-md-4 col-sm-4 devices">
           <div class="text-center">
             <img src="<?php echo get_template_directory_uri(); ?>/img/device.png" alt="">
           </div>
         </div>
+
+        <?php
+        $args = [
+          'post_type' => 'projets',
+          'posts_per_page'=> 3,
+          'order' => 'DESC',
+          // 'category_name' => 'services-card'
+        ];
+
+        $secondquery = new WP_Query($args);
+        ?>
+
+       
+
         <!-- feature item -->
         <div class="col-md-4 col-sm-4 features">
+           <?php while ($secondquery->have_posts()): $secondquery->the_post();
+          $icon = get_post_meta(get_the_ID() , 'labs_icon_projets' , true);
+           ?>
           <div class="icon-box light">
             <div class="icon">
-              <i class="flaticon-037-idea"></i>
+              <i class="<?= $icon ?>"></i>
             </div>
             <div class="service-text">
-              <h2>Get in the lab</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
+              <h2><?php the_title(); ?></h2>
+              <p><?php the_content(); ?></p>
             </div>
           </div>
-          <!-- feature item -->
-          <div class="icon-box light">
-            <div class="icon">
-              <i class="flaticon-025-imagination"></i>
-            </div>
-            <div class="service-text">
-              <h2>Projects online</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
-            </div>
-          </div>
-          <!-- feature item -->
-          <div class="icon-box light">
-            <div class="icon">
-              <i class="flaticon-008-team"></i>
-            </div>
-            <div class="service-text">
-              <h2>SMART MARKETING</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
-            </div>
-          </div>
+           <?php 
+          endwhile;
+          wp_reset_postdata(); 
+        ?>
         </div>
+
+       
+
       </div>
+
+        
+
       <div class="text-center mt100">
         <a href="#last" class="site-btn">Browse</a>
       </div>

@@ -18,7 +18,7 @@ class ProjetsDetailsMetabox
          foreach ($screens as $screen) {
              add_meta_box(
                  self::$slug, // unique ID
-                 __("Détails des projets"), // Box title
+                 __("Détails des projets - Choix d'icône"), // Box title
                  [self::class, 'render'], // content callback, must be of type callable 
                  $screen // post type
              );
@@ -31,6 +31,19 @@ class ProjetsDetailsMetabox
 
       public static function render()
       {
-          view('metaboxes/projets-detail');
+          $projet = get_post_meta(get_the_ID(), 'labs_icon_projets', true);
+
+          view('metaboxes/projects-detail', compact ('projet'));
+      }
+
+      public static function save($post_id)
+      {
+          if (count($_POST) !=0) {
+              $data = [
+                  'labs_icon_projets' => post_data('labs_icon_projets', $_POST),
+              ];
+
+              update_post_metas($post_id, $data);
+          }
       }
 }

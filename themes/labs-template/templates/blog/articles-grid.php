@@ -17,7 +17,7 @@
 					<div class="post-item">
 						
 						<div class="post-thumbnail">
-							<img src="<?php the_post_thumbnail_url()?>" alt="">
+							<img src="<?php the_post_thumbnail_url(); ?>" alt="">
 							<div class="post-date">
 								<h2><?php the_time('j'); ?></h2>
 								<h3><?php the_time('F Y'); ?></h3>

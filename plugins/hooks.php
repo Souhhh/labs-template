@@ -43,6 +43,8 @@ add_action('add_meta_boxes_projets', [ProjetsDetailsMetabox::class, 'add_meta_bo
 
 add_action('save_post_' . ServicesPostType::$slug, [ServicesDetailsMetabox::class, 'save']);
 
+add_action('save_post_' . ProjetsPostType::$slug, [ProjetsDetailsMetabox::class, 'save']);
+
 add_action('delete_post', 'delete_post_metas');
 
 add_action('admin_enqueue_scripts', [Setup::class, 'enqueue_scripts']);
