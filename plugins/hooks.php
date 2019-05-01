@@ -15,6 +15,10 @@ use App\Features\MetaBoxes\TestimonialsDetailsMetabox;
 use App\Features\MetaBoxes\ServicesDetailsMetabox;
 use App\Features\MetaBoxes\ProjetsDetailsMetabox;
 use App\Setup;
+use App\Features\Pages\Page;
+// use App\Features\Pages\SendMail;
+use App\Http\Controllers\MailController;
+use App\Database\Database;
 
 add_action('init', [ServicesPostType::class,'register']);
 
@@ -48,3 +52,13 @@ add_action('save_post_' . ProjetsPostType::$slug, [ProjetsDetailsMetabox::class,
 add_action('delete_post', 'delete_post_metas');
 
 add_action('admin_enqueue_scripts', [Setup::class, 'enqueue_scripts']);
+
+add_action('admin_menu', [Page::class, 'init']);
+// Ajout d'un action pour envoi de mail depuis l'admin
+add_action('admin_action_send-mail', [MailController::class, 'send']);
+// On ajoute une session afin de pouvoir utiliser la varaible $_SESSION;
+add_action('admin_init', [Setup::class, 'start_session']);
+
+// On ajoute la méthode qui va s'executer lors de l'activation du plugin
+// Cette fonction ne s'active que lors de l'activation du plugin
+register_activation_hook(__DIR__ . 'services.php', [Database::class, 'init']);
