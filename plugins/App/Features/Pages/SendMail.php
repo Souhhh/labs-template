@@ -2,7 +2,8 @@
 
 namespace App\Features\Pages;
 
-use App\Http\Requests\Request;
+use App\Http\Controllers\MailController;
+
 
 class SendMail 
 {
@@ -24,16 +25,16 @@ class SendMail
      }
 
      /**
-      * Affichage de la page
+      * Fonction qui redirige vers la bonne méthode
       */
-
       public static function render()
       {
-          if (isset($_SESSION['old'])) {
-              $old = $_SESSION['old'];
-              unset($_SESSION['old']);
-          }
-          view('pages/send-mail', compact('old'));
+          /**
+           * On fait un refactoring afin que la méthode render renvoi vers la bonne méthode en fonction de l'action
+           */
+          // on défini une valeur par défaut pour $action qui est index et qui correspondra à la méthode à utiliser
+          $action = isset($_GET["action"]) ? $_GET["action"] : "index";
+          call_user_func([MailController::class, $action]);
       }
 
 
