@@ -17,7 +17,9 @@ use App\Features\MetaBoxes\ProjetsDetailsMetabox;
 use App\Setup;
 use App\Features\Pages\Page;
 use App\Features\Pages\SendMail;
+use App\Features\Pages\NewsLetter;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\NewsController;
 use App\Database\Database;
 
 add_action('init', [ServicesPostType::class,'register']);
@@ -63,6 +65,15 @@ add_action('admin_action_mail-delete', [MailController::class, 'delete']);
 
 // Ajout d'un action pour éditer un mail
 add_action('admin_action_mail-update', [MailController::class, 'update']);
+
+// Ajout d'un action pour envoi de mail depuis l'admin
+add_action('admin_action_send-news', [NewsController::class, 'send']);
+
+// Ajout d'un action  pour suppression d'un mail depuis l'admin
+add_action('admin_action_news-delete', [NewsController::class, 'delete']);
+
+// Ajout d'un action pour éditer un mail
+add_action('admin_action_news-update', [NewsController::class, 'update']);
 
 // On ajoute une session afin de pouvoir utiliser la varaible $_SESSION;
 add_action('admin_init', [Setup::class, 'start_session']);

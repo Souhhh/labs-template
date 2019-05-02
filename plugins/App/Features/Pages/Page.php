@@ -11,6 +11,7 @@ class Page
      public static function init ()
      {
          SendMail::init();
+         NewsLetter::init();
         
      }
 }

@@ -7,9 +7,12 @@
         </div>
         <div class="col-md-9">
           <!-- newsletter form -->
-          <form class="nl-form">
-            <input type="text" placeholder="Your e-mail here">
-            <button class="site-btn btn-2">Newsletter</button>
+          <form class="nl-form" action="<?= get_admin_url() . '?action=send-news'; ?>" method="post">
+          <?php wp_nonce_field('send-news'); ?>
+          
+            <input type="text" placeholder="Your e-mail here" name="email"  id="email" value="<?= $old['email']; ?>">
+
+            <button class="site-btn btn-2" type="submit">Newsletter</button>
           </form>
         </div>
       </div>
