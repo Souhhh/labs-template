@@ -79,7 +79,7 @@ add_action('admin_action_news-delete', [NewsController::class, 'delete']);
 add_action('admin_action_news-update', [NewsController::class, 'update']);
 
 // On ajoute une session afin de pouvoir utiliser la varaible $_SESSION;
-add_action('admin_init', [Setup::class, 'start_session']);
+add_action('init', [Setup::class, 'start_session']);
 
 // On ajoute la méthode qui va s'executer lors de l'activation du plugin
 // Cette fonction ne s'active que lors de l'activation du plugin

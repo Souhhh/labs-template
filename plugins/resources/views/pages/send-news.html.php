@@ -7,7 +7,6 @@
     
     <!-- Ici nous ajoutons une partie d'html afin de prendre en charge les notifications. On met cela dans un fichier à part afin de pouvoir réutiliser les notifications ailleurs -->
 
-    <?php view('partials/notice'); ?>
 
     <div class="row">
 

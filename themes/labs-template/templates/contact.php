@@ -20,6 +20,7 @@ $contact_info = get_theme_mod('contact-text-info',__('Les informations'));
         </div>
         <!-- contact form -->
         <div class="col-md-6 col-pull">
+        <?php view('partials/notice'); ?>
 
           <form class="form-class" id="con_form" action="<?= get_admin_url() . '?action=send-mail'; ?>" method="post">
  <!-- cette fonction permet une sécurité pour véirfier que le formulaire est authentique -->

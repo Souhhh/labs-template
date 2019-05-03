@@ -1,5 +1,4 @@
 <!-- On vérifie si une notification existe en variable de sesssion -->
-
 <?php if (isset($_SESSION['notice'])) : ?>
 <?php 
 

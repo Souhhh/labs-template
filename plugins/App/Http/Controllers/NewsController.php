@@ -32,26 +32,32 @@ class NewsController
 
           $news = new News();
 
-          
+         
           $news->email = sanitize_email($_POST['email']);
+          
 
-
-          $news->save();
 
 
        // la fonction wordpress pour envoyer des mails 
-       if (wp_mail("ins.guiza@gmail.com","Inscription à la Newsletter","nouveau inscrit à la Newsletter")) {
-           $_SESSION['notice'] = [
+       if (wp_mail($news->email ,'.', 'L') && $news->save()) {
+           $_SESSION['notice2'] = [
                        'status' => 'success',
-                       'message' => 'votre e-mail a bien été envoyé'
+                       'message' => 'Félicitation vous êtes bien inscrit à la Newsletter'
                    ];
        } else {
-           $_SESSION['notice'] = [
+          if(!$news->save()) {
+            $_SESSION['notice2'] = [
+                'status' => 'error',
+                'message' => 'Vous êtes déjà inscrit à la Newsletter'
+            ];
+
+          } else {
+              $_SESSION['notice2'] = [
                'status' => 'error',
                'message' => 'Une erreur est survenu, veuillez réessayer plus tard'
            ];
        }
-
+    }
        
 
        //la fonction wp_safe_redirect redirige vers une url. la fonction wp_get_referer renvoi vers la page d'ou la requête a été envoyé. 
@@ -68,7 +74,7 @@ class NewsController
           $mails = array_reverse(News::all());
           $old = [];
 
-          if (isset($_SESSION['old']) && ($_SESSION['notice']['status'] == 'error')) { //correction pour afficher valeur que quand error
+          if (isset($_SESSION['old']) && ($_SESSION['notice2']['status'] == 'error')) { //correction pour afficher valeur que quand error
               $old = $_SESSION['old'];
               unset($_SESSION['old']);
           }
@@ -117,12 +123,12 @@ class NewsController
         // on met à jour dans la base de donnée et on renvoi une notification
 
         if ($news->update()){
-            $_SESSION['notice'] = [
+            $_SESSION['notice2'] = [
                 'status' => 'success',
-                'message' => 'votre e-mail a bien été modifié'
+                'message' => 'Félicitation vous êtes bien inscrit à la Newsletter'
             ];
         } else {
-            $_SESSION['notice'] = [
+            $_SESSION['notice2'] = [
                 'status' => 'error',
                 'message' => 'une erreur est survenu, veuillez réessayer plus tard'
             ];
