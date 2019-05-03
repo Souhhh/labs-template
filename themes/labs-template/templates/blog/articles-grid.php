@@ -43,17 +43,13 @@
 										echo $tag->name . ", " . ' ';
 									}
 								} ?></a>
-					<a href=""><?php $num_comments = get_comments_number($post_id); ?>
-						2 Comments</a>
+					<a href=""><?php comments_number(); ?>
+					</a>
 				</div>
 				<p class="post-content">
-					<!-- <?php
-							?> -->
-					<!-- <?php
-							?> -->
+					
 					<?php the_content(); ?>
-					<!-- <?php
-							?> -->
+					
 				</p>
 				<a href="<?php the_permalink($post_id); ?>" class="read-more">Read More</a>
 			</div>

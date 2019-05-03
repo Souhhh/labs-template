@@ -35,12 +35,12 @@ get_template_part('templates/blog/banner');
 									$posttags = get_the_tags();
 									if ($posttags) {
   									foreach($posttags as $tag) {
-   									 echo $tag->name . ", " . ' '; 
+   									 echo $tag->name . "," . ' ' . ' '; 
  										 }
 									}
 								?>
 								</a>
-								<a href=""><?php  $num_comments = get_comments_number($post_id); ?> 2 Comments</a>
+								<a href=""><?php comments_number(); ?></a>
 							</div>
 							<p class="post-content">
                                 <?php the_content(); ?>
@@ -72,20 +72,20 @@ get_template_part('templates/blog/banner');
 						</div>
 						<!-- Post Comments -->
 						<div class="comments">
-							<h2><?php get_comments_number($post_id); ?>Comments (2)</h2>
+							<h2><?php comments_number(); ?></h2>
 							<ul class="comment-list">
+
+								<?php $post_ID = 'post_id='. get_the_ID(); 
+								 $commentaires = get_comments($post_ID); 
+								foreach ($commentaires as $commentaire) : ?>
+								
 								<li>
 									<div class="commetn-text">
-										<h3><?php comment_author(); ?> | <?php comment_date( 'j F, Y', $comment_post_ID ); ?>03 nov, 2017 | Reply</h3>
-										<p><?php comment_text( $comment_post_ID ); ?> Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique. </p>
+										<h3><?php comment_author($commentaire); ?> | <?php comment_date( 'j F, Y ', $commentaire); ?>| Reply</h3>
+										<p><?php comment_text($commentaire); ?>  </p>
 									</div>
 								</li>
-								<li>
-									<div class="commetn-text">
-										<h3>Michael Smith | 03 nov, 2017 | Reply</h3>
-										<p>Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique. </p>
-									</div>
-								</li>
+						<?php endforeach; ?>
 							</ul>
 						</div>
 						<!-- Commert Form -->
