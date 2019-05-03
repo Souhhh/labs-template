@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Request;
 use App\Http\Models\Mail;
-use App\Http\Middlewares\CheckPermission;
+// use App\Http\Middlewares\CheckPermission;
 
 class MailController
 
@@ -15,8 +15,8 @@ class MailController
 
       public static function send()
       {
-          // Vérification des permissions
-          CheckPermission::check('create_email');
+        //   // Vérification des permissions
+        //   CheckPermission::check('create_email');
 
           // on vérifie la sécurité pour voir si le formulaire est bien authentique
           if (!wp_verify_nonce($_POST['_wpnonce'], 'send-mail')) {
@@ -75,7 +75,7 @@ class MailController
       public static function index()
       {
           // vérification des permissions
-          CheckPermission::check('read_email');
+        //   CheckPermission::check('read_email');
           $mails = array_reverse(Mail::all());
           $old = [];
 
@@ -93,7 +93,7 @@ class MailController
        public static function show()
        {
            //Vérification des permissions
-           CheckPermission::check('show_email');
+        //    CheckPermission::check('show_email');
 
            $id = $_GET['id'];
            $mail = Mail::find($id);
@@ -162,7 +162,7 @@ class MailController
         public static function delete()
         {
             // vérification des permissions
-            CheckPermission::check('delete');
+            // CheckPermission::check('delete');
 
             $id = $_POST['id'];
             if (Mail::delete($id)) {
