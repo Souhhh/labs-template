@@ -1,5 +1,8 @@
 <?php
 
+use App\Providers\ServicesProvider;
+use App\Setup;
+
 // ajout du fichier env.php pour les constantes global
 require_once('env.php');
 
@@ -8,4 +11,7 @@ require_once('helpers.php');
 
 // ajout d'un fichier hooks.php qui regroupe tout les hooks.
 require_once('hooks.php');
+
+// Setup de l'application
+Setup::init();
 

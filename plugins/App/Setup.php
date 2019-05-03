@@ -2,8 +2,42 @@
 
 namespace App;
 
+use App\Database\Database;
+use App\Features\Roles\Role;
+
 class Setup
 {
+    public static function init()
+  {
+    $plugin = SER_PLUGIN_DIR . '/services.php';
+    register_activation_hook($plugin, [self::class, 'activation']);
+    register_deactivation_hook($plugin, [self::class, 'deactivation']);
+    register_uninstall_hook($plugin, [self::class, 'uninstall']);
+  }
+   /**
+   * Fonction lancé lors de l'activation du plugin
+   *
+   * @return void
+   */
+  public static function activation()
+  {
+    Database::init();
+    Role::init();
+  }
+   /**
+   * Fonction appelé lors de la désactivation du plugin
+   *
+   * @return void
+   */
+  public static function deactivation()
+  { }
+   /**
+   * Fonction appelé lors de la désinstallation du plugin
+   *
+   * @return void
+   */
+  public static function uninstall()
+  { }
     /**
          * Fonction pour ajouter des scripts et css pour l'admin
          */
@@ -30,6 +64,20 @@ class Setup
         }
 
         
-
+/**
+   * Configuration du phpmailer pour rediriger les mails vers mailTrap
+   *
+   * @param [type] $phpmailer
+   * @return void
+   */
+  public static function mailtrap($phpmailer)
+  {
+    $phpmailer->isSMTP();
+    $phpmailer->Host = 'smtp.mailtrap.io';
+    $phpmailer->SMTPAuth = true;
+    $phpmailer->Port = 2525;
+    $phpmailer->Username = '9f36aa3a3fa949';
+    $phpmailer->Password = '23fb6f19d3a28d';
+  }
          
 }

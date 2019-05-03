@@ -14,6 +14,8 @@ use App\Features\MetaBoxes\TeamDetailsMetabox;
 use App\Features\MetaBoxes\TestimonialsDetailsMetabox;
 use App\Features\MetaBoxes\ServicesDetailsMetabox;
 use App\Features\MetaBoxes\ProjetsDetailsMetabox;
+
+
 use App\Setup;
 use App\Features\Pages\Page;
 use App\Features\Pages\SendMail;
@@ -21,6 +23,7 @@ use App\Features\Pages\NewsLetter;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\NewsController;
 use App\Database\Database;
+use App\Features\Roles\Role;
 
 add_action('init', [ServicesPostType::class,'register']);
 
@@ -81,3 +84,5 @@ add_action('admin_init', [Setup::class, 'start_session']);
 // On ajoute la méthode qui va s'executer lors de l'activation du plugin
 // Cette fonction ne s'active que lors de l'activation du plugin
 register_activation_hook(__DIR__ . '/services.php', [Database::class, 'init']);
+
+register_activation_hook(__DIR__ . '/services.php', [Role::class, 'init']);
