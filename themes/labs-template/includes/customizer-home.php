@@ -153,6 +153,12 @@ $wp_customize->add_setting('team-text-title', [
     'sanitize_callback' => 'sanitize_textarea_field'
 ]);
 
+// settings testimonials
+$wp_customize->add_setting('testimonials-text-top', [
+    'type' => 'theme_mod',
+    'sanitize_callback' => 'sanitize_textarea_field'
+]);
+
 // settings promotion
 $wp_customize->add_setting('promotion-text-title', [
     'type' => 'theme_mod',
@@ -385,7 +391,17 @@ $wp_customize->add_control('team-text-title-control',
     'type' => 'textarea'
 ]);
 
-// Control team
+// Control testimonials
+$wp_customize->add_control('testimonials-text-title-control',
+[
+    'section' => 'testimonial-text',
+    'settings' => 'testimonials-text-top',
+    'label' => __('Titre de testimonials'),
+    'description' => __('Personnalisez le titre'),
+    'type' => 'textarea'
+]);
+
+// Control promotion
 $wp_customize->add_control('promotion-text-title-control',
 [
     'section' => 'promotion-text',

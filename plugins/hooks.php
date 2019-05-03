@@ -41,7 +41,7 @@ add_action('init', [TestimonialsTaxonomy::class, 'register']);
 add_action('init', [TeamTaxonomy::class, 'register']);
 
 
-add_action('add_meta_boxes_team', [TeamDetailsMetabox::class, 'add_meta_box']);
+// add_action('add_meta_boxes_team', [TeamDetailsMetabox::class, 'add_meta_box']);
 
 add_action('add_meta_boxes_testimonials', [TestimonialsDetailsMetabox::class, 'add_meta_box']);
 

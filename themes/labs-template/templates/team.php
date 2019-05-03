@@ -17,13 +17,32 @@ $team_title = get_theme_mod('team-text-title', __('Titre de Profession'));
       </div>
       <div class="row">
         <!-- single member -->
+        <?php
+    $args = [
+      'post_type' => 'team',
+      'posts_per_page'=> 1,
+      'orderby' => 'rand',
+      // 'category_name' => 'services-card'
+
+    ];
+    $teamquery = new WP_Query($args);
+    $team2query = new WP_Query($args);
+    ?>
+
+    <?php while ($teamquery->have_posts()): $teamquery->the_post();
+           ?>
+
         <div class="col-sm-4">
           <div class="member">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/team/1.jpg" alt="">
-            <h2>Christinne Williams</h2>
-            <h3>Project Manager</h3>
+            <img src="<?php the_post_thumbnail_url(); ?>" alt="">
+            <h2><?php the_title(); ?></h2>
+            <h3><?php the_content(); ?></h3>
           </div>
         </div>
+        <?php 
+          endwhile;
+          wp_reset_postdata(); 
+          ?> 
         <!-- single member -->
         <div class="col-sm-4">
           <div class="member">
@@ -33,13 +52,19 @@ $team_title = get_theme_mod('team-text-title', __('Titre de Profession'));
           </div>
         </div>
         <!-- single member -->
+        <?php while ($team2query->have_posts()): $team2query->the_post();
+           ?>
         <div class="col-sm-4">
           <div class="member">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/team/3.jpg" alt="">
-            <h2>Christinne Williams</h2>
-            <h3>Digital designer</h3>
+            <img src="<?php the_post_thumbnail_url(); ?>" alt="">
+            <h2><?php the_title(); ?></h2>
+            <h3><?php the_content(); ?></h3>
           </div>
         </div>
+       <?php 
+          endwhile;
+          wp_reset_postdata(); 
+          ?>  
       </div>
     </div>
   </div>
