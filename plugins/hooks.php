@@ -86,3 +86,5 @@ add_action('init', [Setup::class, 'start_session']);
 register_activation_hook(__DIR__ . '/services.php', [Database::class, 'init']);
 
 register_activation_hook(__DIR__ . '/services.php', [Role::class, 'init']);
+
+add_action('phpmailer_init', [Setup::class,'mailtrap']);
