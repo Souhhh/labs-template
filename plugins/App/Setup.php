@@ -7,37 +7,7 @@ use App\Features\Roles\Role;
 
 class Setup
 {
-    public static function init()
-  {
-    $plugin = SER_PLUGIN_DIR . '/services.php';
-    register_activation_hook($plugin, [self::class, 'activation']);
-    register_deactivation_hook($plugin, [self::class, 'deactivation']);
-    register_uninstall_hook($plugin, [self::class, 'uninstall']);
-  }
-   /**
-   * Fonction lancé lors de l'activation du plugin
-   *
-   * @return void
-   */
-  public static function activation()
-  {
-    Database::init();
-    Role::init();
-  }
-   /**
-   * Fonction appelé lors de la désactivation du plugin
-   *
-   * @return void
-   */
-  public static function deactivation()
-  { }
-   /**
-   * Fonction appelé lors de la désinstallation du plugin
-   *
-   * @return void
-   */
-  public static function uninstall()
-  { }
+    
     /**
          * Fonction pour ajouter des scripts et css pour l'admin
          */

@@ -12,6 +12,4 @@ require_once('helpers.php');
 // ajout d'un fichier hooks.php qui regroupe tout les hooks.
 require_once('hooks.php');
 
-// Setup de l'application
-Setup::init();
 
