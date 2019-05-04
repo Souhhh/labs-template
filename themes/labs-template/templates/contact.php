@@ -22,7 +22,8 @@ $contact_info = get_theme_mod('contact-text-info',__('Les informations'));
         <div class="col-md-6 col-pull">
         <?php view('partials/notice'); ?>
 
-          <form class="form-class" id="con_form" action="<?= get_admin_url() . '?action=send-mail'; ?>" method="post">
+          <form class="form-class" id="con_form" action="<?= admin_url('admin-post.php') . '?action=send-mail'; ?>#mail" method="post">
+          <input type="hidden" name="action" value="send-mail">
  <!-- cette fonction permet une sécurité pour véirfier que le formulaire est authentique -->
           <?php wp_nonce_field('send-mail'); ?>
 

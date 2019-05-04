@@ -2,14 +2,16 @@
 
 get_header();
 
+get_template_part('templates/blog/searchbanner.php');
+
 ?>
 
 <div class="page-section spad">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-sm-7 blog-posts">
-                <h1>Résultat de la recherche pour
-                    <span>
+                <h1 >Résultat de la recherche pour
+                    <span class="mt-4">
                         "<?php echo get_search_query(); ?>"
                     </span>
                 </h1>
@@ -30,7 +32,14 @@ get_header();
     </div>
 
 </div>
+
 <?php 
+
+get_template_part('templates/blog/articles');
+
+get_template_part('templates/blog/widget');
+
+get_template_part('templates/services/newsletter');
 
 get_footer();
 

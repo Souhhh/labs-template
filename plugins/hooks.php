@@ -88,3 +88,9 @@ register_activation_hook(__DIR__ . '/services.php', [Database::class, 'init']);
 register_activation_hook(__DIR__ . '/services.php', [Role::class, 'init']);
 
 add_action('phpmailer_init', [Setup::class,'mailtrap']);
+
+add_action('admin_post_send-newsletter', [NewsController::class, 'send']);
+add_action('admin_post_nopriv_send-newsletter', [NewsController::class, 'send']);
+
+add_action('admin_post_send-mail', [MailController::class, 'send']);
+add_action('admin_post_nopriv_send-mail', [MailController::class, 'send']);
