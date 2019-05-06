@@ -9,6 +9,9 @@ get_template_part('templates/blog/searchbanner');
 <div class="page-section spad">
     <div class="container">
         <div class="row">
+
+        
+
             <div class="col-md-8 col-sm-7 blog-posts">
                 <h1 >Résultat de la recherche pour
                     <span class="mt-4">
@@ -27,6 +30,9 @@ get_template_part('templates/blog/searchbanner');
 <?php endwhile; ?>
                 </ul>          
             </div>
+
+            <?php get_template_part('templates/blog/widget'); ?>
+            
         </div>
 
     </div>
@@ -35,9 +41,8 @@ get_template_part('templates/blog/searchbanner');
 
 <?php 
 
-get_template_part('templates/blog/articles');
 
-get_template_part('templates/blog/widget');
+
 
 get_template_part('templates/services/newsletter');
 

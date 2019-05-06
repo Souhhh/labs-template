@@ -20,29 +20,48 @@ $team_title = get_theme_mod('team-text-title', __('Titre de Profession'));
         <?php
     $args = [
       'post_type' => 'team',
-      'posts_per_page'=> 1,
+      'posts_per_page'=> 2,
       'orderby' => 'rand',
       // 'category_name' => 'services-card'
 
     ];
     $teamquery = new WP_Query($args);
-    $team2query = new WP_Query($args);
+    //$team2query = new WP_Query($args);
     ?>
 
+
+<?php $i=0; ?>
     <?php while ($teamquery->have_posts()): $teamquery->the_post();
+    $i++;
+
+    $i == 1 ?
+   $post1 = [
+     'url' => get_the_post_thumbnail_url(),
+     'title' => get_the_title(),
+     'content' => get_post_meta(get_the_ID(), 'membre_title' , true),
+   ]
+   :
+   $post2 = [
+    'url' => get_the_post_thumbnail_url(),
+    'title' => get_the_title(),
+    'content' => get_post_meta(get_the_ID(), 'membre_title' , true),
+   ];
+
+    //$membre = get_post_meta(get_the_ID(), 'membre_title' , true);
+    
+    endwhile;
+    wp_reset_postdata(); 
            ?>
+           
 
         <div class="col-sm-4">
           <div class="member">
-            <img src="<?php the_post_thumbnail_url(); ?>" alt="">
-            <h2><?php the_title(); ?></h2>
-            <h3><?php the_content(); ?></h3>
+            <img src="<?= $post1['url'] ?>" alt="">
+            <h2><?= $post1['title'] ?></h2>
+            <h3><?= $post1['content'] ?></h3>
           </div>
         </div>
-        <?php 
-          endwhile;
-          wp_reset_postdata(); 
-          ?> 
+        
         <!-- single member -->
         <div class="col-sm-4">
           <div class="member">
@@ -52,19 +71,15 @@ $team_title = get_theme_mod('team-text-title', __('Titre de Profession'));
           </div>
         </div>
         <!-- single member -->
-        <?php while ($team2query->have_posts()): $team2query->the_post();
-           ?>
+        
         <div class="col-sm-4">
           <div class="member">
-            <img src="<?php the_post_thumbnail_url(); ?>" alt="">
-            <h2><?php the_title(); ?></h2>
-            <h3><?php the_content(); ?></h3>
+            <img src="<?= $post2['url']; ?>" alt="">
+            <h2><?= $post2['title']; ?></h2>
+            <h3><?= $post2['content']; ?></h3>
           </div>
         </div>
-       <?php 
-          endwhile;
-          wp_reset_postdata(); 
-          ?>  
+       
       </div>
     </div>
   </div>
