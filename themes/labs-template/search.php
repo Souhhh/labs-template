@@ -2,7 +2,7 @@
 
 get_header();
 
-get_template_part('templates/blog/searchbanner.php');
+get_template_part('templates/blog/searchbanner');
 
 ?>
 
