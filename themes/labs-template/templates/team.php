@@ -30,7 +30,8 @@ $team_title = get_theme_mod('team-text-title', __('Titre de Profession'));
     ?>
 
 
-<?php $i=0; ?>
+  <?php $i=0; ?>
+
     <?php while ($teamquery->have_posts()): $teamquery->the_post();
     $i++;
 

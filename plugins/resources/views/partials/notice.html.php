@@ -6,7 +6,7 @@ $status = $_SESSION['notice']['status'];
 $message = $_SESSION['notice']['message'];
 ?>
 
-<div class="notice notice-<?= $status; ?> is-dismissible">
+<div class="alert alert-<?= $status; ?> is-dismissible">
     <p><?= $message; ?></p>
 
 </div>

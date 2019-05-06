@@ -36,6 +36,8 @@ class MailController
           //Refactoring pour apprendre et utiliser les models. Seul les models peuvent intéragir avec la base de donnée. 
           // on instance la class Mail et on rempli les valeurs dans les propriétés. 
 
+          $lastname = $_POST['name'];
+
           $mail = new Mail();
 
           $mail->userid = get_current_user_id();
@@ -49,7 +51,7 @@ class MailController
 
 
        // la fonction wordpress pour envoyer des mails 
-       if (wp_mail($mail->email, 'Pour' . $mail->name . ' ' . $mail->firstname, $mail->message)) {
+       if ( wp_mail($mail->email, 'Pour' . $mail->lastname . ' ' . $mail->firstname, $mail->content)) {
            $_SESSION['notice'] = [
                        'status' => 'success',
                        'message' => 'votre e-mail a bien été envoyé'
@@ -60,6 +62,7 @@ class MailController
                'message' => 'Une erreur est survenu, veuillez réessayer plus tard'
            ];
        }
+      
 
        
 

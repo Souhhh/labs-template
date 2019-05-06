@@ -17,7 +17,7 @@ class NewsController
           if (!wp_verify_nonce($_POST['_wpnonce'], 'send-news')) {
               return;
           };
-          Request::validation([
+          Request::validation2([
               
               'email' => 'email',
               
@@ -35,28 +35,20 @@ class NewsController
          
           $news->email = sanitize_email($_POST['email']);
           
-
-
+          //$isSave = $news->save();
 
        // la fonction wordpress pour envoyer des mails 
        if (wp_mail($news->email ,'.', 'L') && $news->save()) {
-           $_SESSION['notice2'] = [
-                       'status' => 'success',
-                       'message' => 'Félicitation vous êtes bien inscrit à la Newsletter'
-                   ];
-       } else {
-          if(!$news->save()) {
             $_SESSION['notice2'] = [
                 'status' => 'error',
-                'message' => 'Vous êtes déjà inscrit à la Newsletter'
+                'message' => 'Une erreur est survenu, veuillez réessayer plus tard '
             ];
-
-          } else {
-              $_SESSION['notice2'] = [
-               'status' => 'error',
-               'message' => 'Une erreur est survenu, veuillez réessayer plus tard'
-           ];
-       }
+       } else {
+           $_SESSION['notice2'] = [
+            'status' => 'success',
+            'message' => 'Félicitation vous êtes bien inscrit à la Newsletter'
+        ];
+       
     }
        
 
@@ -110,7 +102,7 @@ class NewsController
             return;
         };
         // on vérifie les valeurs
-        Request::validation([
+        Request::validation2([
             'email' => 'email',
         ]);
 
