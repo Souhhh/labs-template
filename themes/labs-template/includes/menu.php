@@ -24,10 +24,20 @@ public static function register_main_menu()
      return $atts;
  }
 
+ public static function active_nav_class ($classes)
+ {
+    if(in_array('current-menu-item', $classes)) {
+        $classes[] = 'active';
+    }
+    return $classes; 
+ }
+
 } 
 
  add_action('after_setup_theme', [MgMenu::class,'register_main_menu']);
 
  add_filter('nav_menu_link_attributes', [MgMenu::class,'ajout_menu_a_class'], 10, 3);
+
+ add_filter('nav_menu_css_class', [MgMenu::class, 'active_nav_class'], 10, 1);
 
 //  hook pour li = nav_menu_css_class, paramètres pour li : $classes, $item, $args, $depth
